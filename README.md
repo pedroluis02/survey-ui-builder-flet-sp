@@ -6,3 +6,9 @@ Flet:
 
 - https://flet.dev/
 - https://github.com/flet-dev/flet
+
+Run example:
+
+```
+flet run counter.py
+```
