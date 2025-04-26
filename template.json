@@ -1,0 +1,10 @@
+{
+  "name": "Survey",
+  "steps": [
+    {
+      "question": "?",
+      "description": "",
+      "fieldType": "text"
+    }
+  ]
+}
