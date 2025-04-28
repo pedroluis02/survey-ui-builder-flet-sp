@@ -7,14 +7,8 @@ def main(page: ft.Page):
     survey = Survey(
         name="Survey 1",
         steps=[
-            SurveyStep(
-                question="What is your name?",
-                field_type="text"
-            ),
-            SurveyStep(
-                question="What is your lastname?",
-                field_type="text"
-            )
+            SurveyStep(question="What is your name?"),
+            SurveyStep(question="What is your lastname?")
         ]
     )
     survey_step_index = 0
