@@ -10,7 +10,7 @@ def main(page: ft.Page):
         steps=[
             SurveyStep(question="What is your name?"),
             SurveyStep(question="What is your lastname?"),
-            SurveyStep(question="What is your lastname?")
+            SurveyStep(question="What is your hometown?")
         ]
     )
 
