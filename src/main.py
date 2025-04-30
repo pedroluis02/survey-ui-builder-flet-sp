@@ -8,9 +8,9 @@ def main(page: ft.Page):
     survey = Survey(
         name="Survey 1",
         steps=[
-            SurveyStep(question="What is your name?"),
-            SurveyStep(question="What is your lastname?"),
-            SurveyStep(question="What is your hometown?")
+            SurveyStep(id=1, question="What is your name?"),
+            SurveyStep(id=2, question="What is your lastname?"),
+            SurveyStep(id=3, question="What is your hometown?")
         ]
     )
 

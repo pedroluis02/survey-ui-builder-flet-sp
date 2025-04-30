@@ -8,6 +8,7 @@ class FieldType(Enum):
 
 @dataclass
 class SurveyStep:
+    id: int
     question: str
     field_type: str = FieldType.FREE_TEXT
     description: str = ""

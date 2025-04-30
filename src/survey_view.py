@@ -11,7 +11,7 @@ class SurveyView(ft.Container):
     step_question_view: ft.Text
     step_field_view: ft.TextField
 
-    step_field_values: list[str]
+    step_answer_values: dict[int, str | None] = {}
 
     def __init__(self, survey: Survey):
         self.survey = survey
@@ -19,8 +19,6 @@ class SurveyView(ft.Container):
 
         self.step_question_view = ft.Text(self.step.question)
         self.step_field_view = ft.TextField(hint_text="Enter text", value="")
-
-        self.step_field_values = ['' for _ in range(len(self.survey.steps))]
 
         super().__init__(
             ft.Column(
@@ -60,7 +58,7 @@ class SurveyView(ft.Container):
 
     def __change_step(self, value: int):
         if self.step_field_view.value is not None:
-            self.step_field_values[self.step_index] = self.step_field_view.value
+            self.step_answer_values[self.step.id] = self.step_field_view.value
 
         self.step_index = self.step_index + value
         self.step = self.survey.steps[self.step_index]
@@ -68,5 +66,6 @@ class SurveyView(ft.Container):
         self.step_question_view.value = self.step.question
         self.step_question_view.update()
 
-        self.step_field_view.value = self.step_field_values[self.step_index]
-        self.step_field_view.update()
+        if self.step_answer_values.get(self.step.id) is not None:
+            self.step_field_view.value = self.step_answer_values[self.step.id]
+            self.step_field_view.update()
