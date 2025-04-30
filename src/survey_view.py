@@ -16,7 +16,7 @@ class SurveyView(ft.Container):
         self.step = self.survey.steps[self.step_index]
 
         self.step_question_view = ft.Text(self.step.question)
-        self.step_field_view = ft.TextField("")
+        self.step_field_view = ft.TextField(hint_text="Enter text", value="")
 
         super().__init__(
             ft.Column(
@@ -32,7 +32,6 @@ class SurveyView(ft.Container):
                                 ]
                             )
                         ],
-
                     ),
                     ft.Row(
                         controls=[
@@ -49,16 +48,15 @@ class SurveyView(ft.Container):
 
     def previous_click(self, _):
         if self.step_index > 0:
-            self.step_index = self.step_index - 1
-            self.step = self.survey.steps[self.step_index]
-
-            self.step_question_view.value = self.step.question
-            self.step_question_view.update()
+            self.__change_step(-1)
 
     def next_click(self, _):
         if self.step_index < len(self.survey.steps) - 1:
-            self.step_index = self.step_index + 1
-            self.step = self.survey.steps[self.step_index]
+            self.__change_step(1)
 
-            self.step_question_view.value = self.step.question
-            self.step_question_view.update()
+    def __change_step(self, value: int):
+        self.step_index = self.step_index + value
+        self.step = self.survey.steps[self.step_index]
+
+        self.step_question_view.value = self.step.question
+        self.step_question_view.update()
