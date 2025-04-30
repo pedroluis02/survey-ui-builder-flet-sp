@@ -4,6 +4,7 @@ from enum import Enum
 
 class FieldType(Enum):
     FREE_TEXT = "FreeText"
+    SINGLE_CHOICE = "SingleChoice"
 
 
 @dataclass

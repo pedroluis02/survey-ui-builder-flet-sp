@@ -3,8 +3,18 @@
   "steps": [
     {
       "question": "?",
-      "description": "",
-      "fieldType": "text"
+      "description": "Enter free text",
+      "fieldType": "FreeText"
+    },
+    {
+      "question": "?",
+      "description": "Select an option",
+      "fieldType": "SingleChoice",
+      "options": [
+        "opt-1",
+        "opt-2",
+        "opt-n"
+      ]
     }
   ]
 }
